@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lohithaksha Poloju - Systems & Mechanical Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-card: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --border: #334155;
+      --tag-bg: #0f172a;
+      --transition: all 0.3s ease;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+      --accent-hover: #0369a1;
+      --border: #e2e8f0;
+      --tag-bg: #f1f5f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+      transition: var(--transition);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 0.5rem 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text h2 {
+      font-size: 1.3rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .contact-item i {
+      color: var(--accent);
+    }
+
+    .avatar-placeholder {
+      width: 160px;
+      height: 200px;
+      background: var(--bg-card);
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--accent);
+    }
+
+    /* Card Layouts */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .card-subtitle {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .card-date {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .card ul {
+      margin-top: 0.8rem;
+      padding-left: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .card ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .skill-category h3 {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="logo">LP.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+  </nav>
+
+  <div class="container">
+    <!-- HERO SECTION -->
+    <section class="hero" id="about">
+      <div class="hero-text">
+        <h1>Lohithaksha Poloju</h1>
+        <h2>Mechanical & Systems Engineer | M.Sc. Candidate</h2>
+        <div class="contact-info">
+          <span class="contact-item"><i class="fa-solid fa-location-dot"></i> Munich, Germany</span>
+          <a href="mailto:lohithaksha.poloju@student.kit.edu" class="contact-item"><i class="fa-solid fa-envelope"></i> lohithaksha.poloju@student.kit.edu</a>
+          <a href="https://linkedin.com/in/poloju-lohithaksha" target="_blank" class="contact-item"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        </div>
+        <p>Master's student in Mobility Systems Engineering at KIT with practical experience in EV powertrain architecture, multidisciplinary team leadership, and computer-aided engineering. Specialized in bridging theoretical design with high-performance execution.</p>
+      </div>
+      <div class="avatar-placeholder">
+        <i class="fa-solid fa-user-gear" style="font-size: 2.5rem; margin-bottom: 0.5rem;"></i>
+        <span>Photo Placeholder</span>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section" id="skills">
+      <h2 class="section-title"><i class="fa-solid fa-microchip"></i> Core Technical Competencies</h2>
+      <div class="skills-grid">
+        <div class="card skill-category">
+          <h3>CAD & Mechanical Design</h3>
+          <div class="tags">
+            <span class="tag">SolidWorks</span>
+            <span class="tag">Siemens NX</span>
+            <span class="tag">Creo</span>
+            <span class="tag">AutoCAD</span>
+            <span class="tag">GD&T</span>
+            <span class="tag">DFM/DFA</span>
+          </div>
+        </div>
+        <div class="card skill-category">
+          <h3>CAE & Simulation</h3>
+          <div class="tags">
+            <span class="tag">ANSYS Workbench</span>
+            <span class="tag">Altair Inspire Cast</span>
+            <span class="tag">FEA</span>
+            <span class="tag">Structural Vibration</span>
+            <span class="tag">Thermal Simulation</span>
+          </div>
+        </div>
+        <div class="card skill-category">
+          <h3>Systems & Software</h3>
+          <div class="tags">
+            <span class="tag">Python (NumPy, Pandas)</span>
+            <span class="tag">MATLAB / Simulink</span>
+            <span class="tag">V-Model</span>
+            <span class="tag">Git</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Root-Cause Analysis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section class="section" id="experience">
+      <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Professional Experience</h2>
+      <div class="timeline">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Daimler Truck AG</div>
+              <div class="card-subtitle">Temporary Production Employee — Assembly Operations</div>
+            </div>
+            <div class="card-date">Since 06/2026 | Wörth am Rhein, Germany</div>
+          </div>
+          <ul>
+            <li>Qualified across four assembly stations on a mixed-model line producing ~210 heavy-duty trucks daily.</li>
+            <li>Executed QR-guided, torque-controlled, and variant-specific mechanical installations adhering to strict quality protocols.</li>
+            <li>Installed critical chassis and cab sub-assemblies while escalating line deviations for design improvements.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">KA-RACING | Formula Student Electric</div>
+              <div class="card-subtitle">Team Contributor — Electric Powertrain</div>
+            </div>
+            <div class="card-date">Since 2026 | Karlsruhe, Germany</div>
+          </div>
+          <ul>
+            <li>Contributing to high-voltage battery system packaging and electric powertrain integration for the 2026 season.</li>
+            <li>Supporting structural packaging, interface alignment, and thermal validation within restricted racing geometries.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">MOPEDO</div>
+              <div class="card-subtitle">Team Lead – R&D Mechanical</div>
+            </div>
+            <div class="card-date">08/2023 – 08/2024 | India</div>
+          </div>
+          <ul>
+            <li>Directed an 8-person multidisciplinary team through full-lifecycle EV concept development and structural design reviews.</li>
+            <li>Governed cross-functional interfaces utilizing RACI matrices mapped against range, battery capacity, cost, and schedule KPIs.</li>
+            <li>Planned comprehensive thermal, NVH, EMI/EMC, and range evaluations.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="section" id="education">
+      <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+      <div class="timeline">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Karlsruhe Institute of Technology (KIT) | ESADE</div>
+              <div class="card-subtitle">M.Sc. Mobility Systems Engineering and Management</div>
+            </div>
+            <div class="card-date">Since 09/2024 | Karlsruhe, Germany</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">JNTU Hyderabad</div>
+              <div class="card-subtitle">B.Tech. Mechanical Engineering (German-equivalent grade: 2.27)</div>
+            </div>
+            <div class="card-date">06/2019 – 07/2022 | India</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS & IP SECTION -->
+    <section class="section" id="projects">
+      <h2 class="section-title"><i class="fa-solid fa-lightbulb"></i> Key Projects & Patents</h2>
+      <div class="timeline">
+        <div class="card">
+          <div class="card-title">Electric Micro Vehicle with PV Integration</div>
+          <p style="color: var(--text-muted); margin-top: 0.5rem;">Co-invented a compact urban EV architecture integrating photovoltaic power generation with dense mechanical packaging constraints. Advanced concept to proof-of-concept realization and filed Indian Patent Application 202241031399.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Avionics Vibration Test Fixture</div>
+          <p style="color: var(--text-muted); margin-top: 0.5rem;">Formulated a dedicated structural fixture concept and defined precise analytical loading assumptions for repeatable vibration qualification of aerospace hardware.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2026 Lohithaksha Poloju. Hosted on GitHub Pages.</p>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const icon = themeToggle.querySelector('i');
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+        icon.className = 'fa-solid fa-moon';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        icon.className = 'fa-solid fa-sun';
+      }
+    });
+  </script>
+</body>
+</html>
